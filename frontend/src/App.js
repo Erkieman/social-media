@@ -1,11 +1,24 @@
 import { useGoogleLogin } from '@react-oauth/google';
 import './App.css';
 import Button from 'react-bootstrap/Button';
+import { useState } from 'react';
+import axios from 'axios';
 
 function App() {
+  const [auth, setAuth] = useState({});
+
+  const authHandler = async (data) => {
+    try {
+    const response = await axios.post('http://localhost:5000/auth/google/callback', data);
+    console.log(response.data);
+    return response.data
+    } catch (error) {
+      console.log(error);
+    };
+  };
   
   const login = useGoogleLogin({
-    onSuccess: codeResponse => console.log(codeResponse),
+    onSuccess: codeResponse => authHandler(codeResponse),
     flow: 'auth-code',
   });
 

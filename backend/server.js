@@ -7,8 +7,8 @@ app.get("/", (req, res) => {
 });
 
 app.get("/auth/google/callback", (req, res) => {
-  const code = req.credential;
-  res.send('code');
+  const code = req;
+  res.send(code);
 });
 
 const port = process.env.PORT || 5000;
