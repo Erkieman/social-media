@@ -13,10 +13,10 @@ function App() {
     console.log(response.data);
     return response.data
     } catch (error) {
-      console.log(error);
+      console.log(error.response);
     };
   };
-  
+
   const login = useGoogleLogin({
     onSuccess: codeResponse => authHandler(codeResponse),
     flow: 'auth-code',
