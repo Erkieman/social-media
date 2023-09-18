@@ -5,7 +5,6 @@ import { useState } from 'react';
 import axios from 'axios';
 
 function App() {
-  const [auth, setAuth] = useState({});
 
   const authHandler = async (data) => {
     try {
@@ -26,7 +25,7 @@ function App() {
     <div className="App">
       <Button onClick={() => login()}>
       Sign in with Google 🚀{' '}
-      </Button>;
+      </Button>
     </div>
 
   );

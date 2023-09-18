@@ -6,12 +6,13 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
-app.post("/auth/google/callback", cors(), (req, res) => {
-  res.send("authcode", req);
+app.post("/auth/google/callback", (req, res) => {
+  res.send(200, req.body);
 });
 
 const port = process.env.PORT || 5000;
