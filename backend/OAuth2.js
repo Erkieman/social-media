@@ -1,9 +1,11 @@
-import 'dotenv/config';
+import * as dotenv from 'dotenv';
 import {OAuth2Client} from 'google-auth-library';
 import http from 'http';
 import url from 'url';
 import open from 'open';
 import destroyer from 'server-destroy';
+
+dotenv.config();
 
 /**
 * Start by acquiring a pre-authenticated oAuth2 client.
@@ -51,7 +53,7 @@ function getAuthenticatedClient() {
         try {
           if (req.url.indexOf('/oauth2callback') > -1) {
             // acquire the code from the querystring, and close the web server.
-            const qs = new url.URL(req.url, 'http://localhost:3000')
+            const qs = new url.URL(req.url, 'http://localhost:5000')
               .searchParams;
             const code = qs.get('code');
             console.log(`Code is ${code}`);

@@ -1,5 +1,6 @@
 #dependencies
-.env
+backend/.env
 node_modules
 
+#google keys in json format
 oauth2.keys.json
