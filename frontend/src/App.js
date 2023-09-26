@@ -6,19 +6,8 @@ import axios from 'axios';
 
 function App() {
 
-  // const authHandler = async (data) => {
-  //   try {
-  //   const response = await axios.post('http://localhost:5000/auth/google/callback', data);
-  //   console.log(response.data);
-  //   return response.data
-  //   } catch (error) {
-  //     console.log(error.response);
-  //   };
-  // };
-
-  // const authHandler = (data) => {
-  //   console.log(data);
-  // };
+  //const authHandler = async (response) => { 
+//   console.log(response);}
 
   const login = useGoogleLogin({
     onSuccess: codeResponse => console.log(codeResponse),
