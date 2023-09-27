@@ -19,5 +19,5 @@ app.post("/oauth2callback", (req, res) => {
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
-  console.log(`Server running on port ${port} and clientid is ${process.env.GOOGLE_CLIENT_ID}`);
+  console.log(`Server running on port ${port}`);
 });
