@@ -6,9 +6,6 @@ import axios from 'axios';
 
 function App() {
 
-  //const authHandler = async (response) => { 
-//   console.log(response);}
-
   const login = useGoogleLogin({
     onSuccess: codeResponse => console.log(codeResponse),
     flow: 'auth-code',
@@ -17,7 +14,7 @@ function App() {
   return (
     <div className="App">
       <Button onClick={() => login()}>
-      Sign in with Google 🚀{' '}
+      Sign in with Google 🚀{''}
       </Button>
     </div>
 
