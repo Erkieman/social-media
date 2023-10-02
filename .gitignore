@@ -1,5 +1,6 @@
 #dependencies
 backend/.env
+frontend/.env
 node_modules
 
 #google keys in json format
