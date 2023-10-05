@@ -1,14 +1,17 @@
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
-import { useEffect } from 'react';
+import Dashboard from './screens/Dashboard';
+import { useEffect, useState } from 'react';
 
 function App() {
+  const [user, setUser] = useState({});
 
   function handleCredentialResponse(response) {
     console.log("JWT_" + response.credential);
     var userObject = jwt_decode(response.credential);
-    console.log(userObject);  
+    console.log(userObject);
+    setUser(userObject);
   };
 
   useEffect(() => {
@@ -26,7 +29,7 @@ function App() {
 
   return (
     <div className="App">
-      <div id="signInDiv"></div>
+      {user ? <Dashboard user={user} /> : <div id="signInDiv"></div>}
     </div>
 
   );
