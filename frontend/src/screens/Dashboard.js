@@ -6,7 +6,7 @@ const Dashboard = (data) => {
 
   const LogOut = () => {
     /* global google */
-    google.accounts.id.prompt();
+    google.accounts.id.disableAutoSelect();
     console.log('Logged out');
     console.log(data)
   };
