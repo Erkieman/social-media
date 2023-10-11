@@ -10,8 +10,14 @@ function App() {
   function handleCredentialResponse(response) {
     console.log("JWT_" + response.credential);
     var userObject = jwt_decode(response.credential);
-    console.log(userObject);
+    console.log('decoded jewt', userObject);
     setUser(userObject);
+  };
+
+  const LogOut = () => {
+    /* global google */
+    //google.accounts.id.disableAutoSelect();
+    localStorage.removeItem('data-skip_prompt_cookie');
   };
 
   useEffect(() => {
@@ -21,6 +27,8 @@ function App() {
       callback: handleCredentialResponse,
     });
 
+    console.log('initialized', user);
+
     google.accounts.id.renderButton(
       document.getElementById("signInDiv"),
       { theme: "outline", size: "large"}
@@ -29,7 +37,11 @@ function App() {
 
   return (
     <div className="App">
-      {user ? <Dashboard user={user} /> : <div id="signInDiv"></div>}
+      {user.email_verified ? (
+        <Button onClick={LogOut}>Sign Out</Button>
+      ) : (
+        <div id="signInDiv"></div>
+      ) }
     </div>
 
   );
